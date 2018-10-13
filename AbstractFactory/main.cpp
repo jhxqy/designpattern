@@ -7,20 +7,22 @@
 //
 
 #include <stdio.h>
+#include <memory>
 #include "AbstractFactory.hpp"
+using namespace std;
 int main(){
-    AbstractFactory *af=createFactory("male");
-    Jacket *j=af->CreateJacket();
-    j->show();
-    Trousers *t=af->createTrousers();
-    t->show();
     
-    delete j;
-    delete af;
-    delete t;
-    af=createFactory("female");
-    j=af->CreateJacket();
+    shared_ptr<AbstractFactory> af(createFactory("male"));
+    shared_ptr<Jacket>j(af->CreateJacket());
+    shared_ptr<Trousers> t(af->createTrousers());
+
     j->show();
-    af->createTrousers();
+    t->show();
+   
+    af.reset(createFactory("female"));
+    j.reset(af->CreateJacket());
+    t.reset(af->createTrousers());
+
+    j->show();
     t->show();
 }
