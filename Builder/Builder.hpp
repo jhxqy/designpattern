@@ -15,7 +15,12 @@ struct Computer{
     std::string gpu;
     std::string ram;
     std::string brand;
-    
+    void show(){
+        std::cout<<"CPU:"<<cpu<<std::endl
+        <<"GPU:"<<gpu<<std::endl<<
+        "Ram:"<<ram<<std::endl<<
+        "Brand:"<<brand<<std::endl<<std::endl;
+    }
 };
 //Director
 class Builder{
