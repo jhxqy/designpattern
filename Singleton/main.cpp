@@ -13,5 +13,6 @@ int main(){
     Singleton *s=Singleton::Instance();
     s->print();
     Singleton *s1=Singleton::Instance();
+    s1->print();
     cout<<boolalpha<<(s1==s)<<endl;
 }

@@ -19,5 +19,5 @@ Singleton* Singleton::Instance(){
 }
 
 void Singleton::print(){
-    cout<<"this is a singleton"<<endl;
+    cout<<"this is a singleton:address:"<<this<<endl;
 }
