@@ -10,6 +10,8 @@
 #include "Adapter.hpp"
 
 int main(){
-    StackAdapter<int> stack;
-    needStack(stack,5 );
+    StackAdapter<int> stack1;
+    StackAdapter2<int> stack2;
+    needStack(stack1,10);
+    needStack(stack2, 20);
 }
