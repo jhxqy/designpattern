@@ -8,29 +8,40 @@
 
 #ifndef Composite_hpp
 #define Composite_hpp
-
 #include <stdio.h>
-#include <string>
+#include <iostream>
+#include <vector>
 class Component{
+
 public:
-    virtual void Operation();
-    virtual void Add(const Component *c);
-    virtual void Remove();
-    virtual Component* GetChild();
+    virtual void Operator(int){}
+    virtual void Add(Component *c){}
+    virtual void Remove(int){}
+    virtual Component* GetChild(int){return nullptr;}
     virtual ~Component()=0;
 };
-Component::~Component(){}
 
 class Leaf:public Component{
     std::string name_;
 public:
-    Leaf(std::string name):name_(name){}
-    void Operation() override;
+    Leaf(std::string name):name_(name){
+    }
+    void Operator(int) override;
+   // ~Leaf(){}
 };
+
+
 
 class Composite:public Component{
     std::string name_;
+    std::vector<Component*> v;
 public:
-    Composite(std::string name):name_(name){}
+    Composite(std::string name):name_(name){
+    }
+    void Operator(int)override;
+    void Add(Component *c)override;
+    void Remove(int n)override;
+    Component* GetChild(int n)override;
 };
+
 #endif /* Composite_hpp */

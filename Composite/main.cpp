@@ -7,6 +7,11 @@
 //
 
 #include <stdio.h>
+#include "Composite.hpp"
+
 int main(){
+    Leaf *j=new Leaf("jhx");
+    Leaf *z=new Leaf("zmm");
+    Leaf *x=new Leaf("xqw");
     
 }
