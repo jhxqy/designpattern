@@ -10,9 +10,11 @@
 using namespace std;
 
 Component::~Component(){}
-void Leaf::Operator(int){
-    
-    cout<<"这是一个叶子："<<name_<<endl;
+void Leaf::Operator(int n){
+    for(int i=0;i<n;i++){
+        cout<<"--";
+    }
+    cout<<name_<<endl;
 }
 void Composite::Add(Component *c){
     v.push_back(c);
@@ -28,9 +30,12 @@ Component* Composite::GetChild(int n){
     return v[n];
 }
 
-void Composite::Operator(int){
+void Composite::Operator(int n){
+    for(int i=0;i<n;i++){
+        cout<<"--";
+    }
     cout<<name_<<endl;
     for(auto i:v){
-        (*i).Operator(0);
+        (*i).Operator(n+1);
     }
 }
