@@ -18,12 +18,12 @@ void Leaf::Operator(int n){
 }
 void Composite::Add(Component *c){
     v.push_back(c);
+    c->setFather(this);
 }
 
 
 void Composite::Remove(int n){
     v.erase(v.begin()+n);
-
 }
 
 Component* Composite::GetChild(int n){

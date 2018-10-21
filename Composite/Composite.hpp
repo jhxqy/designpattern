@@ -12,8 +12,16 @@
 #include <iostream>
 #include <vector>
 class Component{
-
+protected:
+    Component *father;
+    
 public:
+    void setFather(Component *f){
+        father=f;
+    }
+    Component* getFather(){
+        return father;
+    }
     virtual void Operator(int){}
     virtual void Add(Component *c){}
     virtual void Remove(int){}

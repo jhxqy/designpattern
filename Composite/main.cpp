@@ -25,5 +25,6 @@ int main(){
     wl->Add(zxl);
     wl->Add(c1);
     wl->Add(c2);
-    wl->Operator(0);
+//    wl->Operator(0);
+   
 }
