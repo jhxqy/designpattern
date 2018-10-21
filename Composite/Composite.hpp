@@ -50,6 +50,7 @@ public:
     void Add(Component *c)override;
     void Remove(int n)override;
     Component* GetChild(int n)override;
+    ~Composite();
 };
 
 #endif /* Composite_hpp */

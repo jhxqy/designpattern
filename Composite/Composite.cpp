@@ -39,3 +39,8 @@ void Composite::Operator(int n){
         (*i).Operator(n+1);
     }
 }
+Composite::~Composite(){
+    for(auto i:v){
+        delete i;
+    }
+}
