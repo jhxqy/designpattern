@@ -8,6 +8,7 @@
 
 #include "Flyweight.hpp"
 using namespace std;
+
 void ConcretePiece::PrintPosition(int r, int c){
     switch (color_) {
         case Piece::black:
@@ -23,6 +24,14 @@ void ConcretePiece::PrintPosition(int r, int c){
 
 
 Piece::~Piece(){}
+PieceFactory* PieceFactory::instance=0;
+PieceFactory* PieceFactory::Instance(){
+    if(instance==0){
+        instance=new PieceFactory;
+    }
+    return instance;
+}
+
 Piece* PieceFactory::getPiece(const std::string &s){
     map<string,Piece*>::iterator iter=m.find(s);
     if(iter==m.end()){

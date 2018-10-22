@@ -28,9 +28,13 @@ public:
 };
 
 
-class PieceFactory{
+class PieceFactory{   //实现单例
+    static PieceFactory *instance;
     std::map<std::string,Piece*> m;
+    PieceFactory(){}
 public:
+    static PieceFactory* Instance();
+    
     Piece* getPiece(const std::string &s);
 };
 

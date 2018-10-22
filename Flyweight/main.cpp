@@ -9,14 +9,14 @@
 #include <stdio.h>
 #include "Flyweight.hpp"
 int main(){
-    PieceFactory pf;
+    PieceFactory *pf=PieceFactory::Instance();
     Piece* Checkerboard[4][4];
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
             if(i>j){
-                Checkerboard[i][j]=pf.getPiece("black");
+                Checkerboard[i][j]=pf->getPiece("black");
             }else{
-                Checkerboard[i][j]=pf.getPiece("white");
+                Checkerboard[i][j]=pf->getPiece("white");
             }
         }
     }
