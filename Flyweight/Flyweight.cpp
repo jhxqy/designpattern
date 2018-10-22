@@ -30,6 +30,10 @@ Piece* PieceFactory::getPiece(const std::string &s){
             auto p=new ConcretePiece(Piece::white);
             m.insert({"white",p});
             return p;
+        }else{
+            auto p=new ConcretePiece(Piece::black);
+            m.insert({"black",p});
+            return p;
         }
     }
     return iter->second;
