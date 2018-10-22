@@ -7,3 +7,30 @@
 //
 
 #include "Flyweight.hpp"
+using namespace std;
+void ConcretePiece::PrintPosition(int r, int c){
+    switch (color_) {
+        case Piece::black:
+            cout<<r<<"行 "<<c<<"列 黑子"<<endl;
+            break;
+        case Piece::white:
+            cout<<r<<"行 "<<c<<"列 白子"<<endl;
+            break;
+        default:
+            break;
+    }
+}
+
+
+Piece::~Piece(){}
+Piece* PieceFactory::getPiece(const std::string &s){
+    map<string,Piece*>::iterator iter=m.find(s);
+    if(iter==m.end()){
+        if(s=="white"){
+            auto p=new ConcretePiece(Piece::white);
+            m.insert({"white",p});
+            return p;
+        }
+    }
+    return iter->second;
+}
