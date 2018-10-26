@@ -14,20 +14,21 @@ int main(){
     Leaf *xqw=new Leaf("xqw");
     Leaf *qjw=new Leaf("qjw");
     Leaf *zxl=new Leaf("zxl");
-    Composite *c1=new Composite("网络171");
-    Composite *c1D=new Class(c1);
-    c1D->Add(qjw);
-    c1D->Add(xqw);
-    Composite *c2=new Composite("网络172");
-    Composite *c2D=new Class(c2);
+    Composite *c1=new Composite("网络171",3);
+    c1->Add(qjw);
+    c1->Add(xqw);
+    Composite *c2=new Composite("网络172",3);
 
-    c2D->Add(jhx);
-    c2D->Add(zmm);
-    Composite *wl=new Composite("网络工程系");
-    Composite *wlD=new Department(wl);
-    wlD->Add(zxl);
-    wlD->Add(c1);
-    wlD->Add(c2);
+
+    c2->Add(jhx);
+    c2->Add(zmm);
+    Composite *wl=new Composite("网络工程系",15);
+  
+    wl->Add(zxl);
+    wl->Add(c1);
+    wl->Add(c2);
+
+    xqw->leave(3);
     xqw->leave(10);
     
 }

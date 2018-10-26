@@ -44,10 +44,13 @@ Composite::~Composite(){
         delete i;
     }
 }
-
 void Leaf::leave(int n){
     getFather()->leave(n);
 }
 void Composite::leave(int n){
-    cout<<name_<<"准假"<<n<<"天！"<<endl;
+    if(n<=n_){
+        cout<<name_<<"准假"<<n<<"天！"<<endl;
+    }else{
+        getFather()->leave(n);
+    }
 }

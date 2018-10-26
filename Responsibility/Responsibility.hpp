@@ -46,10 +46,10 @@ public:
 class Composite:public Component{
     std::string name_;
     std::vector<Component*> v;
+    int n_;
 public:
-    Composite(std::string name):name_(name){
+    Composite(std::string name,int n):name_(name),n_(n){
     }
-    
     void Operator(int)override;
     void leave(int) override;
 
@@ -59,59 +59,6 @@ public:
     ~Composite();
 };
 
-class Class:public Composite{
-    Composite *p;
-public:
-
-    Class(Composite *c):Composite(""),p(c){}
-    void Operator(int n) override{
-        p->Operator(n);
-    }
-    void leave(int n)override{
-        if(n<=3){
-            p->leave(n);
-        }else{
-            p->getFather()->leave(n);
-        }
-    }
-    void Add(Component *c)override{
-        p->Add(c);
-    }
-    void Remove(int n)override{
-        p->Remove(n);
-    }
-    Component* GetChild(int n)override{
-        return p->GetChild(n);
-    }
-    ~Class(){}
-};
-
-class Department:public Composite{
-    Composite *p;
-public:
-    
-    Department(Composite *c):Composite(""),p(c){}
-    void Operator(int n) override{
-        p->Operator(n);
-    }
-    void leave(int n)override{
-        if(n<=10){
-            p->leave(n);
-        }else{
-            p->getFather()->leave(n);
-        }
-    }
-    void Add(Component *c)override{
-        p->Add(c);
-    }
-    void Remove(int n)override{
-        p->Remove(n);
-    }
-    Component* GetChild(int n)override{
-        return p->GetChild(n);
-    }
-    ~Department(){}
-};
 
 
 #endif /* Responsibility_hpp */
