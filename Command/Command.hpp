@@ -58,3 +58,5 @@ template <typename R>
 void SimpleCommand<R>::Execute(){
     (receiver_->*action_)();
 }
+
+
