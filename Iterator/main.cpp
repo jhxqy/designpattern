@@ -14,6 +14,16 @@ int main(){
     l.Append(5);
     l.Append(10);
     l.Append(15);
-    
-    cout<<l.Count();
+    List<int>::ListIterator i1=l.createIterator();
+    while (!i1.IsDone()) {
+        int &a=i1.Next();
+        cout<<a<<endl;
+        a+=5;
+    }
+    List<int>::ListIterator i2=l.createIterator();
+    while (!i2.IsDone()) {
+        int &a=i2.Next();
+        cout<<a<<endl;
+    }
+
 }
