@@ -23,7 +23,7 @@ public:
 template <typename T>
 class AbstractList{
 public:
-    class ListIterator;
+    class ListIterator:public Iterator<T>{};
     ListIterator createIterator();
     int Count();
     void Append(T item);
@@ -36,7 +36,7 @@ class List:public AbstractList<T>{
     T data[100];
     int index;
 public:
-    class ListIterator:public Iterator<T>{
+    class ListIterator:public AbstractList<T>::ListIterator{
         List *list;
         int i;
     public:
