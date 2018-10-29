@@ -7,6 +7,16 @@
 //
 
 #include "Mediator.hpp"
-void Mediator::Buy(const People &p, int id){
-    
+int Mediator::Order::count=1;
+
+void Mediator::Sell(const People &p, int price){
+    Order o=Order(p.getName(),price);
+    for(auto &i:peoples){
+        if(i->getName()!=p.getName()){
+            std::stringstream ss;
+            ss<<p.getName()<<"想要卖房 价格:"<<price<<" id:"<<o.id;
+            i->Receive(ss.str());
+        }
+    }
 }
+
