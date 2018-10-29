@@ -13,6 +13,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <iostream>
 class People;
 class Mediator{
   
@@ -47,13 +48,15 @@ class People{
     std::string name_;
     Mediator *m;
 public:
-    People(const std::string &s,Mediator *mm):name_(s),m(mm){}
+    People(const std::string &s,Mediator *mm):name_(s),m(mm){
+        mm->addPeople(this);
+    }
     const std::string& getName()const{
         return name_;
     }
     void Buy(int id);
     void Sell(int price);
-    void Complaint(int id);
+//    void Complaint(int id);
     void Receive(const std::string &s);
 };
 
