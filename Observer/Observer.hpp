@@ -16,18 +16,19 @@
 class Observer;
 class Subject{
 public:
-    virtual void attach(Observer* o);
-    virtual void detach(Observer* o);
-    virtual void setStatus(const std::string &s);
-    virtual void notify();
-    virtual std::string getStatus();
+    virtual void attach(Observer* o)=0;
+    virtual void detach(Observer* o)=0;
+    virtual void notify()=0;
+    virtual std::string getStatus()=0;
+    virtual void setStatus(const std::string &s)=0;
+    virtual ~Subject()=0;
 };
 
 class Observer{
 public:
-    virtual void setSubject(Subject *s);
-    virtual void update();
-    virtual ~Observer(){}
+    virtual void setSubject(Subject *s)=0;
+    virtual void update()=0;
+    virtual ~Observer()=0;
 
 
 };
@@ -36,11 +37,11 @@ class ConcreteSubject: public Subject{
     std::vector<Observer*> v;
     std::string status;
 public:
-    void attach(Observer *o)override;
-    void detach(Observer *o)override;
-    void notify()override;
-    void setStatus(const std::string &s)override;
-    std::string getStatus()override;
+    void attach(Observer *o);
+    void detach(Observer *o);
+    void notify();
+    void setStatus(const std::string &s);
+    std::string getStatus();
 };
 
 class ConcreteObserver:public Observer{

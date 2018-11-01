@@ -7,6 +7,8 @@
 //
 
 #include "Observer.hpp"
+Subject::~Subject(){}
+Observer::~Observer(){}
 
 void ConcreteSubject::attach(Observer *o){
     o->setSubject(this);
@@ -27,18 +29,19 @@ void ConcreteSubject::setStatus(const std::string &s){
 std::string ConcreteSubject::getStatus(){
     return status;
 }
-////
+void ConcreteSubject::notify(){
+    for(auto &i:v){
+        i->update();
+    }
+}
 
 void ConcreteObserver::setSubject(Subject *s){
     subject_=s;
 }
 
 
-void ConcreteSubject::notify(){
-    for(auto &i:v){
-        i->update();
-    }
-}
+
+
 void ConcreteObserver::update(){
     std::cout<<name_<<"收到消息："<<subject_->getStatus()<<std::endl;
 
