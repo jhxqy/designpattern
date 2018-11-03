@@ -20,6 +20,4 @@ int main(){
     cs->setStatus("hi baby");
     cs->detach(co3);
     cs->setStatus("helloworld");
-
-
 }

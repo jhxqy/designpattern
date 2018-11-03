@@ -16,8 +16,6 @@
 #include <iostream>
 class People;
 class Mediator{
-  
-    
 public:
     struct Order{
         std::string name;
