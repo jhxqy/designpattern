@@ -11,9 +11,11 @@
 #include <iostream>
 #include <stdio.h>
 class State;
+
 class VendingMachine{
     State *state_;
 public:
+    VendingMachine();
     void CoinOperated();
     void choose();
     void end();

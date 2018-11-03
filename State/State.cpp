@@ -11,6 +11,9 @@ using namespace std;
 Standby* Standby::s=nullptr;
 Running* Running::r=nullptr;
 
+VendingMachine::VendingMachine(){
+    state_=Standby::Instance();
+}
 void VendingMachine::CoinOperated(){
     state_->CoinOperated(this);
 }
@@ -40,7 +43,7 @@ Standby* Standby::Instance(){
 }
 void Standby::CoinOperated(VendingMachine *v){
     int n;
-    std::cout<<"请输入你要投的钱数:"<<std::endl;
+    std::cout<<"请输入你要投的钱数:";
     std::cin>>n;
     v->changeState(Running::Instance(n));
     std::cout<<"现在您有"<<n<<"元可以消费"<<std::endl;
@@ -57,7 +60,7 @@ void Standby::end(VendingMachine *v){
 }
 
 void Running::CoinOperated(VendingMachine *v){
-    std::cout<<"请输入你要继续投的钱数:"<<std::endl;
+    std::cout<<"请输入你要继续投的钱数:";
     int n;
     std::cin>>n;
     money+=n;
