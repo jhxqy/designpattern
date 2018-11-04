@@ -29,4 +29,12 @@ int main(){
     wl->Accept(v);
     auto i=v->getNum();
     std::cout<<"人数："<<i.first<<"集合数："<<i.second<<std::endl;;
+    
+    auto v2=new NameVistor;
+    wl->Accept(v2);
+    auto i2=v2->getName();
+    for(auto &i3:i2){
+        std::cout<<i3<<",";
+    }
+    std::cout<<std::endl;
 }

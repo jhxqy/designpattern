@@ -66,5 +66,5 @@ void NameVistor::Visit(Leaf *v){
     vect.push_back(v->getName());
 }
 void NameVistor::Visit(Composite *c){
-    vect.push_back(c->getName());
+    
 }
