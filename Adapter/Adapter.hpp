@@ -30,7 +30,6 @@ void needStack(std::stack<T> &stack,const T &e){
 template<typename T>
 class StackAdapter:public std::stack<T>,std::vector<T>{
 public:
-
     using std::stack<T>::push;
     using std::stack<T>::pop;
 
@@ -39,7 +38,6 @@ public:
     }
     void pop(){
         std::vector<T>::pop_back();
-        
     }
     bool empty(){
         return std::vector<T>::empty();
