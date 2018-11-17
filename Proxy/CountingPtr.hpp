@@ -10,36 +10,39 @@
 #define CountingPtr_hpp
 
 #include <stdio.h>
-template<typename T>
 class CounterPolicy{
+    size_t *count_;
 public:
     CounterPolicy();
-    CounterPolicy(const CounterPolicy&);
     ~CounterPolicy();
-    CounterPolicy& operator=(const CounterPolicy&);
-    void init(T*);
-    void disoise(T*);
-    void increment(T*);
-    void decrement(T*);
-    bool is_zero(T*);
+    void init();
+    void disoise();
+    void increment();
+    void decrement();
+    bool is_zero();
 };
-template <typename T>
+template<typename T>
 class ObjectPolicy{
 public:
-    ObjectPolicy();
-    ObjectPolicy(CounterPolicy<T> const&);
-    ~ObjectPolicy();
-    ObjectPolicy& operator=(const ObjectPolicy&);
-    
     void dispose(T*);
 };
 template<typename T>
-class CountingPtr{
+class ObjectPolicy<T[]>{
+public:
+    void dispose(T*);
+};
+
+template<typename T,typename CP=CounterPolicy,typename OP=ObjectPolicy<T>>
+class CountingPtr:private CounterPolicy,private ObjectPolicy<T>{
+    T* object_;
+public:
     explicit CountingPtr(T*);
     CountingPtr(const CountingPtr&);
     ~CountingPtr();
     CountingPtr<T>& operator=(const CountingPtr&);
     inline T& operator*();
     inline T* operator->();
+private:
+    
 };
 #endif /* CountingPtr_hpp */
