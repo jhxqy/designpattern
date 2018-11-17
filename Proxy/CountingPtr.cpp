@@ -13,7 +13,7 @@ CounterPolicy::CounterPolicy(){
 void CounterPolicy::init(){
     count_=new size_t(1);
 }
-void CounterPolicy::disoise(){
+void CounterPolicy::dispose(){
     delete count_;
 }
 void CounterPolicy::increment(){
@@ -25,13 +25,6 @@ void CounterPolicy::decrement(){
 bool CounterPolicy::is_zero(){
     return *count_==0;
 }
-template<typename T>
-void ObjectPolicy<T>::dispose(T*t){
-    delete t;
-}
 
-template<typename T>
-void ObjectPolicy<T[]>::dispose(T *t){
-    delete[] t;
-}
+
 

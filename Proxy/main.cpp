@@ -17,7 +17,7 @@ using namespace std;
 int main(){
     srand((unsigned)time(NULL));
     //需要大量的BigClass;
-    BigClassProxy* container[100];
+    CountingPtr<BigClassProxy> container[100];
     for(auto &i:container){
         i=new BigClassProxy(rand()%100);
         cout<<i->f()<<" ";
@@ -26,8 +26,5 @@ int main(){
     //延迟了开销;
     container[45]->write();
     container[85]->write();
-
-    
-    
-    
+    CountingPtr<int> p(new int(5));
 }
