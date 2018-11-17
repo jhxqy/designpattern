@@ -12,6 +12,7 @@
 #include <iterator>
 #include <cstdlib>
 #include <iterator>
+#include "CountingPtr.hpp"
 using namespace std;
 int main(){
     srand((unsigned)time(NULL));
