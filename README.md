@@ -1,6 +1,6 @@
 #  设计模式（Design Pattern）
 
-## 这个仓库的目的是记录设计模式的学习经过，语言描述为C++，争取能用最简单的例子来使自己理解基本的设计模式。
+## 目的是记录设计模式的学习经过，语言描述为C++，争取能用最简单的例子来使自己理解基本的设计模式。
 
 ## 目录：
 1. [抽象工厂模式（AbstractFactory）](https://github.com/jhxqy/designpattern/tree/master/AbstractFactory)
