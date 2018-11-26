@@ -14,7 +14,6 @@
 class Singleton{
 private:
     int id;
-    static Singleton* instance_;
 protected:
     Singleton():id(0){}
 public:

@@ -8,9 +8,10 @@
 
 #include "Singleton.hpp"
 using namespace std;
-Singleton* Singleton::instance_=nullptr;
 
 Singleton* Singleton::Instance(){
+    static Singleton* instance_=nullptr;
+
     if(!instance_){
         instance_=new Singleton;
     }
