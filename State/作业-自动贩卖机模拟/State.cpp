@@ -38,10 +38,6 @@ void Standby::enterBackStage(Machine *v,BackStage *b){
 
 
 
-
-
-
-
 Buying* Buying::Instance(int n){
     static Buying *p=NULL;
     if(p==NULL){

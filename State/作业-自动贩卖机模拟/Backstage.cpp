@@ -10,9 +10,35 @@
 #include <iostream>
 #include "Machine.hpp"
 #include "State.hpp"
+#include "fstream"
+#include <exception>
 using namespace std;
 BackStage::BackStage():income_(0){
-    //读取商品信息和收入
+    ifstream in("/Users/jiahaoxiang/Downloads/data.txt");
+    if(in.is_open()){
+        int m;
+        in>>m;
+        income_=m;
+        string name;
+        while(in>>name){
+            int p, n;
+            in>>n;
+            in>>p;
+            commoditys_.insert(pair<string, Commodity>(name,Commodity(n,p)));
+        }
+        in.close();
+    }
+}
+BackStage::~BackStage(){
+    ofstream out("/Users/jiahaoxiang/Downloads/data.txt");
+    typedef map<std::string,Commodity>::iterator Iter;
+    if(out.is_open()){
+        out<<income_;
+        for(Iter i=commoditys_.begin();i!=commoditys_.end();i++){
+            out<<" "<<(*i).first<<" "<<(*i).second.number<<" "<<(*i).second.price;
+        }
+    }
+    
 }
 void BackStage::addCommodity(){
     cout<<"请输入您要添加的商品名称:";
@@ -83,9 +109,7 @@ int BackStage::buy(const std::string &name,int n,int money){
     return result;
 }
 
-BackStage::~BackStage(){ 
-    
-}
+
 void BackStage::openOrClose(bool b,Machine &m){
     if (b) {
         m.changeState(Standby::Instance());
@@ -102,6 +126,7 @@ void BackStage::enterBS(Machine *m){
         cout<<"4.关闭/打开售货机"<<endl;
         cout<<"5.查看商品列表"<<endl;
         cout<<"6.返回"<<endl;
+        cout <<"请输入选择:";
         int n;
         cin>>n;
         switch (n) {
@@ -129,7 +154,7 @@ void BackStage::enterBS(Machine *m){
                 break;
             case 5:
                 showList();
-            
+                break;
             default:
                 return;
         }
