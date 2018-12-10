@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include <map>
 #include <string>
-#include "State.hpp"
+#include <utility>
+
 class Machine;
 struct Commodity{
     int number;
@@ -22,14 +23,15 @@ struct Commodity{
 class BackStage{
     std::map<std::string,Commodity> commoditys_;
     int income_;
-public:
-    BackStage();
     void addCommodity();
     void removeCommodity();
-    void showList() const;
     int getIncome() const;
-    int buy(const std::string &,int,int);
     void openOrClose(bool,Machine &m);
+public:
+    BackStage();
+    void showList() const;
+    int buy(const std::string &,int,int);
+    void enterBS(Machine *m);
     ~BackStage();
 };
 

@@ -10,10 +10,11 @@
 #define Machine_hpp
 
 #include <stdio.h>
+#include "Backstage.hpp"
 class State;
 class Machine{
     State *state_;
-    
+    BackStage bs;
 public:
     Machine();
     void CoinOperated();
@@ -22,4 +23,10 @@ public:
     void enterBackStage();
     void changeState(State *s);
 };
+
+
+
+
+
+
 #endif /* Machine_hpp */

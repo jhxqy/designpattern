@@ -9,30 +9,40 @@
 #include <stdio.h>
 #include <iostream>
 #include "Backstage.hpp"
+#include "Machine.hpp"
 using namespace std;
 int main(){
-    BackStage bs;
+    Machine m;
     while (true) {
+        cout<<"欢迎使用自动售货机"<<endl;
+        cout<<"1.投币"<<endl;;
+        cout<<"2.挑选物品"<<endl;
+        cout<<"3.退币"<<endl;
+        cout<<"4.进入后台"<<endl;
+        cout<<"5.退出"<<endl;
+        cout<<"请输入：";
         int n;
         cin>>n;
         switch (n) {
             case 1:
-                bs.showList();
+                m.CoinOperated();
                 break;
             case 2:
-                bs.addCommodity();
+                m.choose();
                 break;
             case 3:
-                bs.removeCommodity();
+                m.end();
                 break;
             case 4:
-                cout<<bs.buy("cook", 20,500)<<endl;
+                m.enterBackStage();
                 break;
             case 5:
-                cout<<bs.getIncome()<<endl;
+                return 0;
+                break;
             default:
                 break;
         }
     }
+    
    
 }

@@ -37,7 +37,7 @@ class Buying:public State{
     int money_;
     std::map<std::string,int> shoppingCart_;
 public:
-    static Buying* Instance();
+    static Buying* Instance(int);
     virtual void CoinOperated(Machine *v,BackStage *b);
     virtual void choose(Machine *v,BackStage *b);
     virtual void end(Machine *v,BackStage *b);
