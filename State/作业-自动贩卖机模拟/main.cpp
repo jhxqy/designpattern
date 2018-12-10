@@ -14,7 +14,7 @@ using namespace std;
 int main(){
     Machine m;
     while (true) {
-        cout<<"欢迎使用自动售货机"<<endl;
+        cout<<endl<<"欢迎使用自动售货机"<<endl;
         cout<<"1.投币"<<endl;;
         cout<<"2.挑选物品"<<endl;
         cout<<"3.退币"<<endl;

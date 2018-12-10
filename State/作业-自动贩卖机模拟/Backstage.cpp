@@ -31,7 +31,7 @@ void BackStage::addCommodity(){
         (*i).second.number+=n;
         (*i).second.price=price;
     }
-    cout<<"添加成功！!"<<endl;
+    cout<<"添加成功！!"<<endl<<endl;
 }
 void BackStage::removeCommodity(){
     cout<<"请输入您要删除的商品名称:";
@@ -43,7 +43,7 @@ void BackStage::removeCommodity(){
     typedef map<std::string,Commodity>::iterator Iter;
     Iter i=commoditys_.find(name);
     if(i==commoditys_.end()){
-        cout<<"您输入的商品不存在"<<endl;
+        cout<<"您输入的商品不存在"<<endl<<endl;
         return;
     }else{
         (*i).second.number-=n;
@@ -55,10 +55,12 @@ void BackStage::removeCommodity(){
 }
 void BackStage::showList() const{
     int n=1;
-    cout<<"   商品名\t价格\t剩余数量"<<endl;
+    cout<<"商品名  价格  剩余数量"<<endl;
     for(map<std::string,Commodity>::const_iterator i=commoditys_.begin();i!=commoditys_.end();i++){
         cout<<n<<". "<<(*i).first<<"\t"<<(*i).second.price<<"\t"<<(*i).second.number<<endl;
+        n++;
     }
+    cout<<endl;
 }
 
 
@@ -93,7 +95,7 @@ void BackStage::openOrClose(bool b,Machine &m){
 }
 void BackStage::enterBS(Machine *m){
     while (true) {
-        cout<<"欢迎进入后台！"<<endl;
+        cout<<endl<<"欢迎进入后台！"<<endl;
         cout<<"1.添加商品"<<endl;
         cout<<"2.删除商品"<<endl;
         cout<<"3.查看收入"<<endl;
