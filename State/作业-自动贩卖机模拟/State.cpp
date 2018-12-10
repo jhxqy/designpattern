@@ -23,15 +23,15 @@ void Standby::CoinOperated(Machine *v, BackStage *b){
     int money;
     cin>>money;
     v->changeState(Buying::Instance(money));
-    cout<<"投币成功 共投入："<<money<<"元！"<<endl;
+    cout<<"投币成功 共投入："<<money<<"元！"<<endl<<endl;
 }
 void Standby::choose(Machine *v, BackStage *b){
-    cout<<"您尚未投币，请先投币."<<endl;
+    cout<<"您尚未投币，请先投币."<<endl<<endl;
 }
 void Standby::end(Machine *v, BackStage *b){
-    cout<<"您尚未投币，请先投币."<<endl;
+    cout<<"您尚未投币，请先投币."<<endl<<endl;
 }
-void enterBackStage(Machine *v,BackStage *b){
+void Standby::enterBackStage(Machine *v,BackStage *b){
     b->enterBS(v);
 }
 
@@ -56,7 +56,7 @@ void Buying::CoinOperated(Machine *v, BackStage *b){
     int m;
     cin>>m;
     money_+=m;
-    cout<<"投币成功 共投入："<<money_<<"元！"<<endl;
+    cout<<"投币成功 当前剩余："<<money_<<"元！"<<endl<<endl;
 }
 void Buying::choose(Machine *v, BackStage *b){
     cout<<"当前您有:"<<money_<<"元，商品清单如下："<<endl;
@@ -69,12 +69,12 @@ void Buying::choose(Machine *v, BackStage *b){
     cin>>n;
     int t=b->buy(name, n, money_);
     if(t<0){
-        cout<<"余额不足或是商品库存不足，购买失败"<<endl;
+        cout<<"余额不足或是商品库存不足，购买失败"<<endl<<endl;
         return;
     }
     money_=t;
     shoppingCart_.insert(pair<string, int>(name,n));
-    cout<<"购买成功，您当前还有:"<<money_<<"元"<<endl;
+    cout<<"购买成功，您当前还有:"<<money_<<"元"<<endl<<endl;
 }
 void Buying::end(Machine *v, BackStage *b){
     typedef map<string,int>::iterator IterType;
@@ -83,12 +83,12 @@ void Buying::end(Machine *v, BackStage *b){
         cout<<"  "<<(*i).first<<"\t"<<(*i).second<<endl;
     }
     shoppingCart_.clear();
-    cout<<"剩余"<<money_<<"元，已退币。"<<endl;
+    cout<<"剩余"<<money_<<"元，已退币。"<<endl<<endl;
     v->changeState(Standby::Instance());
 }
 
 void Buying::enterBackStage(Machine *v, BackStage *b){
-    cout<<"您正在购买状态，请退币后再试！"<<endl;
+    cout<<"您正在购买状态，请退币后再试！"<<endl<<endl;
 }
 
 
@@ -104,14 +104,14 @@ Closing* Closing::Instance(){
     return p;
 }
 void Closing::CoinOperated(Machine *v, BackStage *b){
-    cout<<"当前机器已关闭，请联系管理员！"<<endl;
+    cout<<"当前机器已关闭，请联系管理员！"<<endl<<endl;
 }
 void Closing::choose(Machine *v, BackStage *b){
-    cout<<"当前机器已关闭，请联系管理员！"<<endl;
+    cout<<"当前机器已关闭，请联系管理员！"<<endl<<endl;
 
 }
 void Closing::end(Machine *v, BackStage *b){
-    cout<<"当前机器已关闭，请联系管理员！"<<endl;
+    cout<<"当前机器已关闭，请联系管理员！"<<endl<<endl;
 }
 
 void Closing::enterBackStage(Machine *v, BackStage *b){

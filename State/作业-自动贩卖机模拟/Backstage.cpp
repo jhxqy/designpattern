@@ -9,6 +9,7 @@
 #include "Backstage.hpp"
 #include <iostream>
 #include "Machine.hpp"
+#include "State.hpp"
 using namespace std;
 BackStage::BackStage():income_(0){
     //读取商品信息和收入
@@ -83,7 +84,7 @@ int BackStage::buy(const std::string &name,int n,int money){
 BackStage::~BackStage(){ 
     
 }
-void openOrClose(bool b,Machine &m){
+void BackStage::openOrClose(bool b,Machine &m){
     if (b) {
         m.changeState(Standby::Instance());
     }else{
@@ -97,7 +98,8 @@ void BackStage::enterBS(Machine *m){
         cout<<"2.删除商品"<<endl;
         cout<<"3.查看收入"<<endl;
         cout<<"4.关闭/打开售货机"<<endl;
-        cout<<"5.返回"<<endl;
+        cout<<"5.查看商品列表"<<endl;
+        cout<<"6.返回"<<endl;
         int n;
         cin>>n;
         switch (n) {
@@ -114,14 +116,18 @@ void BackStage::enterBS(Machine *m){
                 int nn;
                 cout<<"1. 打开 2.关闭 请输入:";
                 cin>>nn;
-                if(n==1)
+                if(nn==1){
                     openOrClose(true, *m);
-                else{
+                    cout<<"成功打开！"<<endl;
+                }else{
                     openOrClose(false, *m);
+                    cout<<"成功关闭！"<<endl;
+
                 }
                 break;
             case 5:
-                return;
+                showList();
+            
             default:
                 return;
         }

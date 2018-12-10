@@ -7,6 +7,7 @@
 //
 
 #include "Machine.hpp"
+#include "State.hpp"
 Machine::Machine(){
     state_=Standby::Instance();
 }
@@ -21,4 +22,7 @@ void Machine::end(){
 }
 void Machine::enterBackStage(){
     state_->enterBackStage(this,&bs);
+}
+void Machine::changeState(State *s){
+    state_=s;
 }

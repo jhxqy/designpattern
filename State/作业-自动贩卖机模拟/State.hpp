@@ -27,10 +27,10 @@ class Standby:public State{
     Standby(){}
 public:
     static Standby* Instance();
-    virtual void CoinOperated(Machine *v,BackStage *b);
-    virtual void choose(Machine *v,BackStage *b);
-    virtual void end(Machine *v,BackStage *b);
-    virtual void enterBackStage(Machine *v,BackStage *b);
+    void CoinOperated(Machine *v,BackStage *b);
+    void choose(Machine *v,BackStage *b);
+    void end(Machine *v,BackStage *b);
+    void enterBackStage(Machine *v,BackStage *b);
 };
 class Buying:public State{
     Buying(){}
@@ -38,19 +38,19 @@ class Buying:public State{
     std::map<std::string,int> shoppingCart_;
 public:
     static Buying* Instance(int);
-    virtual void CoinOperated(Machine *v,BackStage *b);
-    virtual void choose(Machine *v,BackStage *b);
-    virtual void end(Machine *v,BackStage *b);
-    virtual void enterBackStage(Machine *v,BackStage *b);
+    void CoinOperated(Machine *v,BackStage *b);
+    void choose(Machine *v,BackStage *b);
+    void end(Machine *v,BackStage *b);
+    void enterBackStage(Machine *v,BackStage *b);
 };
 class Closing:public State{
     Closing(){}
 public:
     static Closing* Instance();
-    virtual void CoinOperated(Machine *v,BackStage *b);
-    virtual void choose(Machine *v,BackStage *b);
-    virtual void end(Machine *v,BackStage *b);
-    virtual void enterBackStage(Machine *v,BackStage *b);
+    void CoinOperated(Machine *v,BackStage *b);
+    void choose(Machine *v,BackStage *b);
+    void end(Machine *v,BackStage *b);
+    void enterBackStage(Machine *v,BackStage *b);
 };
 
 
