@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Backstage.hpp"
 class State;
+
 class Machine{
     State *state_;
     BackStage bs;

@@ -119,7 +119,7 @@ void BackStage::openOrClose(bool b,Machine &m){
 }
 void BackStage::enterBS(Machine *m){
     while (true) {
-        cout<<endl<<"欢迎进入后台！"<<endl;
+        cout<<endl<<"······欢迎进入后台！······"<<endl;
         cout<<"1.添加商品"<<endl;
         cout<<"2.删除商品"<<endl;
         cout<<"3.查看收入"<<endl;
