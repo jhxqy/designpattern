@@ -25,6 +25,7 @@ public:
 
 class Standby:public State{
     Standby(){}
+    Standby(const Standby&){}
 public:
     static Standby* Instance();
     void CoinOperated(Machine *v,BackStage *b);
@@ -34,6 +35,7 @@ public:
 };
 class Buying:public State{
     Buying(){}
+    Buying(const Buying&){}
     int money_;
     std::map<std::string,int> shoppingCart_;
 public:
@@ -45,6 +47,7 @@ public:
 };
 class Closing:public State{
     Closing(){}
+    Closing(const Closing&){}
 public:
     static Closing* Instance();
     void CoinOperated(Machine *v,BackStage *b);
