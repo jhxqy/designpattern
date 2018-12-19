@@ -38,6 +38,7 @@ BackStage::~BackStage(){
             out<<" "<<(*i).first<<" "<<(*i).second.number<<" "<<(*i).second.price;
         }
     }
+    out.close();
     
 }
 void BackStage::addCommodity(){
