@@ -29,8 +29,6 @@ public:
     virtual void setSubject(Subject *s)=0;
     virtual void update()=0;
     virtual ~Observer()=0;
-
-
 };
 
 class ConcreteSubject: public Subject{
